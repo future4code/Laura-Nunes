@@ -1,0 +1,39 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#header {
+    background-color: black;
+    color: gold;
+    text-align: center;
+    font-size: 30px;
+    padding: 10px;
+}
+
+#menu {
+    background-color: grey;
+    text-align: center;
+    padding: 5px;
+
+}
+
+a {
+    color: white;
+    padding: 10px;
+}
+
+#funcionarios {
+    min-height: 55vh;
+    margin-left: 10px;
+}
+
+footer {
+    display: block;
+    text-align: center;
+
+}
+
+img {
+    max-width: 3%;
+}

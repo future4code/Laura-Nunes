@@ -1,0 +1,63 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#header {
+    background-color: black;
+    color: gold;
+    text-align: center;
+    font-size: 30px;
+    padding: 10px;
+}
+
+#menu {
+    background-color: grey;
+    text-align: center;
+    padding: 5px;
+
+}
+
+table {
+    border: 1px solid black;
+    width: 99%;
+    border-collapse: collapse;
+    margin: 5px;
+    
+}
+
+
+td {
+    text-align: center;
+
+
+}
+
+.coluna1 {
+    width: 30%;
+    
+}
+
+a {
+    color: white;
+    padding: 10px;
+}
+
+.ctrl-estoque {
+    min-height: 60vh;
+}
+
+
+footer {
+    display: block;
+    text-align: center;
+
+}
+
+img {
+    max-width: 25%;
+}
+
+.img-footer {
+    max-width: 3%;
+}

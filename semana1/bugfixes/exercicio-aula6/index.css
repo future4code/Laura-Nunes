@@ -80,8 +80,13 @@ div img {
 
 section {
     padding: 200px;
+   
     
-    
+}
+
+p {
+    white-space: pre-line;
+    text-align: center;
 }
 
 #container-para-comprar {

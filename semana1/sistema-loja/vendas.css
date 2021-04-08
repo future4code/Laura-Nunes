@@ -1,0 +1,57 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#header {
+    background-color: black;
+    color: gold;
+    text-align: center;
+    font-size: 30px;
+    padding: 10px;
+}
+
+#menu {
+    background-color: grey;
+    text-align: center;
+    padding: 5px;
+}
+
+a {
+    color: white;
+    padding: 10px;
+}
+
+h2 {
+    margin-left: 10px;
+}
+
+
+div {
+    padding: 3px;
+    
+}
+
+#form {
+    text-align: justify;
+    padding: 10px;
+}
+
+#hist-vendas {
+    color: blue;
+    text-align: left;
+    padding: 2px;
+}
+
+footer {
+    display: block;
+    text-align: center;
+    position: absolute;
+    bottom: 0%; 
+    
+}
+
+img {
+    max-width: 3%;
+}
+    

@@ -1,0 +1,46 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#header {
+    background-color: black;
+    color: gold;
+    text-align: center;
+    font-size: 30px;
+    padding: 10px;
+}
+
+#menu {
+    background-color: grey;
+    text-align: center;
+    padding: 5px;
+}
+
+a {
+    color: white;
+    padding: 10px;
+}
+
+#tabela-hist {
+    padding: 5px;
+}
+
+table {
+    border-style: solid;
+    padding: 10px;
+    width: 50%;
+    text-align: center;
+}
+
+footer {
+    display: block;
+    text-align: center;
+    position: absolute;
+    bottom: 0%; 
+}
+
+img {
+    max-width: 3%;
+}
+    

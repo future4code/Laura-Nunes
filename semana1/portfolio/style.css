@@ -1,64 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+
 * {
+    font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
 
 }
 
+#selected {
+    color: blanchedalmond;
+}
+
 header {
     background-color: black;
-    max-height: 300px;
-    position: sticky;
+    min-height: 15vh;
+    
     
 }
 
 header > img {
     display: block;
-    width: 200px;
+    width: 15%;
+    
 
 }
 
 nav { 
     position: relative;
-    
+    display: block;    
     bottom: 110px;
     float: right;
-    font-size: 25px;
-    
-
-    
+    font-size: 20px;
+       
 }
 
 nav > a {
     color: grey;
-    padding: 15px;
+    padding: 10px;
     cursor: pointer;
+    text-decoration: none;
 }
 
 main {
     text-align: center;
-    margin-top: 50px;
-}
-
-section {
-    margin-top: 30px;
-    margin-left: 15px;
-}
-
-.fale-comigo {
-    margin-top: 15px;
+    /* margin: 10px; */
+    padding: 30px;
+    min-height: 51vh;
     
-
 }
 
-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+#formacao {
+    padding: 10px 400px;
+}
+
+main > div > img {
+    height: 300px;
     text-align: center;
 }
 
-footer > div > img {
-    width: 40px;
+#foto-perfil {
+    height: 300px;
+    text-align: center;
+}
+
+main > div > ul > li {
+    padding: 3px;
+    
+}
+
+section {
+    margin: 7px;
+    min-height: 58vh;
+}
+
+form input {
+    display: block;
+}
+
+.fale-comigo {
+    /* margin-top: 1px; */
+    
+}
+
+footer {
+    background-color: black;
+    min-height: 5vh;
+    width: 100%;
+    text-align: center;
+     
+}
+
+footer > div > a > img {
+    width: 30px;
+    padding: 5px;
+    
+    
     
     
 }

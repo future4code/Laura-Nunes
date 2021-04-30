@@ -6,9 +6,7 @@ function inverteArray(array) {
    for (let i = array.length -1; i >= 0; i--) {
       arrayInvertido.push(array[i])
  }
-
  return arrayInvertido;
- 
 }
 
 //Exercício 2
@@ -24,7 +22,6 @@ function retornaNumerosParesElevadosADois (array) {
       arrayParAoQuadrado[i] = arrayParAoQuadrado[i]**2
    }
    return arrayParAoQuadrado;
-
 }
 
 //Exercício 3
@@ -51,19 +48,21 @@ function retornaMaiorNumero(array) {
          maiorNumero = arrayMaior;
       }
    })
-   return maiorNumero
+   return maiorNumero;
 }
 
 //Exercício 5
 
 function retornaQuantidadeElementos (array) {
    // implemente sua lógica aqui
+   return array.length;
 }
 
 //Exercício 6
 
 function retornaExpressoesBooleanas() {
    // implemente sua lógica aqui
+   
 }
 
 //Exercício 7

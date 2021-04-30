@@ -3,7 +3,7 @@
 function inverteArray(array) {
    // implemente sua lógica aqui
    let arrayInvertido = []
-   for (let i = array.length -1; i>=0;i--){
+   for (let i = array.length -1; i >= 0; i--) {
       arrayInvertido.push(array[i])
  }
 
@@ -12,11 +12,11 @@ function inverteArray(array) {
 }
 
 //Exercício 2
-const array = [1, 2, 3, 4, 5, 6]
+
 function retornaNumerosParesElevadosADois (array) {
    // implemente sua lógica aqui
    let arrayParAoQuadrado = array.filter((number) => {
-      if (number%2 === 0) {
+      if (number % 2 === 0) {
          return true
       }
    })
@@ -31,6 +31,14 @@ function retornaNumerosParesElevadosADois (array) {
 
 function retornaNumerosPares (array) {
    // implemente sua lógica aqui
+   let arrayPar = []
+   array.forEach((item, indice, array) => {
+      if (item % 2 === 0) {
+         arrayPar.push(item)
+        
+   }
+})
+   return arrayPar;
 }
 
 //Exercício 4

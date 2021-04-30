@@ -31,7 +31,7 @@ function retornaNumerosParesElevadosADois (array) {
 
 function retornaNumerosPares (array) {
    // implemente sua lógica aqui
-   let arrayPar = []
+   let arrayPar = [];
    array.forEach((item, indice, array) => {
       if (item % 2 === 0) {
          arrayPar.push(item)
@@ -45,6 +45,13 @@ function retornaNumerosPares (array) {
 
 function retornaMaiorNumero(array) {
    // implemente sua lógica aqui
+   let maiorNumero = 0;
+   array.forEach((arrayMaior) =>{
+      if (arrayMaior > maiorNumero){
+         maiorNumero = arrayMaior;
+      }
+   })
+   return maiorNumero
 }
 
 //Exercício 5

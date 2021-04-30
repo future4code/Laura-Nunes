@@ -15,6 +15,16 @@ function inverteArray(array) {
 const array = [1, 2, 3, 4, 5, 6]
 function retornaNumerosParesElevadosADois (array) {
    // implemente sua lógica aqui
+   let arrayParAoQuadrado = array.filter((number) => {
+      if (number%2 === 0) {
+         return true
+      }
+   })
+   for (let i = 0; i < arrayParAoQuadrado.length; i++){
+      arrayParAoQuadrado[i] = arrayParAoQuadrado[i]**2
+   }
+   return arrayParAoQuadrado;
+
 }
 
 //Exercício 3

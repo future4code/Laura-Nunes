@@ -43,7 +43,7 @@ function retornaNumerosPares (array) {
 function retornaMaiorNumero(array) {
    // implemente sua lógica aqui
    let maiorNumero = 0;
-   array.forEach((arrayMaior) =>{
+   array.forEach((arrayMaior) => {
       if (arrayMaior > maiorNumero){
          maiorNumero = arrayMaior;
       }
@@ -88,18 +88,47 @@ function retornaExpressoesBooleanas() {
 
 function retornaNNumerosPares(n) {
    // implemente sua lógica aqui
+   
 }
 
 // Exercício 8
 
 function checaTriangulo(a, b, c) {
   // implemente sua lógica aqui
+  if(a !== b && b !== c) {
+     return "Escaleno"
+  } else if(a === b && b === c) {
+     return "Equilátero"
+  } else {
+     return "Isóceles"
+  }
 }
 
 // Exercício 9
 
 function comparaDoisNumeros(num1, num2) {
    // implemente sua lógica aqui
+   let maiorNumero
+   let menorNumero 
+   let maiorDivisivelPeloMenor
+
+   if(num1 > num2) {
+      maiorNumero = num1;
+      menorNumero = num2;
+   } else {
+      maiorNumero = num2;
+      menorNumero = num1;
+   }
+
+   maiorDivisivelPeloMenor = maiorNumero % menorNumero === 0;
+
+   const diferenca = maiorNumero - menorNumero;
+
+   return {
+      maiorNumero: maiorNumero,
+      maiorDivisivelPeloMenor: maiorDivisivelPeloMenor,
+      diferenca: diferenca
+   }
 }
 
 // Exercício 10

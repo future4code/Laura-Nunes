@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import PerguntaAberta from './PerguntaAberta';
+import PerguntaFechada from './PerguntaFechada';
 
 
 const App = styled.div`
@@ -18,21 +20,16 @@ class DadosGerais extends React.Component {
       <App>
           <h3>ETAPA 1 - DADOS GERAIS</h3>
 
-          <p>1. Qual o seu nome?</p>
-          <input></input>
-          <p>2. Qual sua idade?</p>
-          <input></input>
-          <p>3. Qual o seu email?</p>
-          <input></input>
-          <p>4. Qual a sua escolaridade?</p>
-          <select>
-              <option value="Ensino médio incompleto">Ensino médio incompleto</option>
-              <option value="Ensino médio completo">Ensino médio completo</option>
-              <option value="Ensino superior incompleto">Ensino superior incompleto</option>
-              <option value="Ensino superior completo">Ensino superior completo</option>
-          </select>
-          <br></br>
-          
+          <PerguntaAberta pergunta={"1. Qual o seu nome?"} />
+          <PerguntaAberta pergunta={"2. Qual sua idade?"} />
+          <PerguntaAberta pergunta={"3. Qual seu email?"} />
+          <PerguntaFechada pergunta={"4. Qual a sua escolaridade?"}
+          opcoes={[
+            "Ensino médio incompleto",
+            "Ensino médio completo",
+            "Ensino superior incompleto",
+            "Ensino superior completo" 
+          ]} />                 
       </App>
   
     );

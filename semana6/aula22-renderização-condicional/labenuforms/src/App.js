@@ -29,9 +29,6 @@ class App extends React.Component {
 
   };
 
-  
-
-
   render () {
     const renderizaEtapa = () => {
       switch (this.state.etapa) {
@@ -51,10 +48,9 @@ class App extends React.Component {
     return (
       <MainContainer>
       {renderizaEtapa()}
-
-      <button onClick={this.irParaProximaEtapa}>Próxima Etapa</button>
       
-
+      {this.state.etapa !== 4 ? <button onClick={this.irParaProximaEtapa}>Próxima Etapa</button> : false}
+      
       </MainContainer>
   
     );

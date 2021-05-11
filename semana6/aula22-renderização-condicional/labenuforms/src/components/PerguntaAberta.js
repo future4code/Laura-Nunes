@@ -15,7 +15,7 @@ class PerguntaAberta extends React.Component {
   render () {
     return (
       <App>
-          <p>{pergunta}</p>
+          <p>{this.props.pergunta}</p>
           <input></input>
       </App>
   

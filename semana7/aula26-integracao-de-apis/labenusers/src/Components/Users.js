@@ -18,46 +18,65 @@ export default class Users extends React.Component {
     this.getUsers();
   }
 
-  getUsers = () => {
+  // getUsers = () => {
+  //   const header = {
+  //     headers: {
+  //       Authorization: "laura-campos-paiva",
+  //     },
+  //   };
+
+  //   axios
+  //     .get(BASE_URL, header)
+  //     .then((res) => {
+  //       // console.log(res);
+  //       this.setState({ users: res.data });
+  //     })
+  //     .catch((err) => {
+  //       alert("Occorreu um problema, tente novamente");
+  //     });
+  // };
+
+  getUsers = async () => {
+    try {
+      const res = await axios.get(BASE_URL, {
+        headers: {
+          Authorization: "laura-campos-paiva",
+        },
+      });
+
+      this.setState({ users: res.data });
+    } catch (err) {
+      alert("Ocorreu um problema, tente novamente");
+    }
+  };
+
+  deleteUser = (id) => {
+    const url = `https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`;
     const header = {
       headers: {
         Authorization: "laura-campos-paiva",
       },
     };
 
-    axios
-      .get(BASE_URL, header)
-      .then((res) => {
-        console.log(res);
-        this.setState({ users: res.data });
-      })
-      .catch((err) => {
-        alert(err.response.data);
-      });
+    if (window.confirm("Tem certeza que quer deletar este usuário?")) {
+      axios
+        .delete(url, header)
+        .then((res) => {
+          alert("Usuário(a) deletado(a) com sucesso!");
+          this.getUsers();
+        })
+        .catch((err) => {
+          alert("Ocorreu um erro, tente novamente");
+        });
+    }
   };
-
-//   deleteUser = () => {        ainda não entendi como fazer com o del
-//     const header = {
-//       headers: {
-//         Authorization: "laura-campos-paiva",
-//       },
-//     };
-
-//     axios
-//         .delete('https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/:id', header)
-//         .then((res) => {
-
-//         })
-//   };
-
-
 
   render() {
     const usersComponents = this.state.users.map((user) => {
       return (
         <div key={user.id}>
-          <p>{user.name}</p>
-          <button>Deletar</button>
+          <p onClick={this.props.goToDetails}>{user.name}</p>
+          <button onClick={() => this.deleteUser(user.id)}>Deletar</button>
         </div>
       );
     });

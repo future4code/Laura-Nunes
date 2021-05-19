@@ -24,6 +24,12 @@ export default class Home extends React.Component {
     this.setState({ inputEmail: e.target.value });
   };
 
+  handleEnter = (e) => {
+    if(e.keyCode === 13) {
+      this.createUser();
+    }
+  };
+
   createUser = () => {
     const header = {
       headers: {
@@ -36,15 +42,19 @@ export default class Home extends React.Component {
       email: this.state.inputEmail,
     };
 
-    axios.post(BASE_URL, body, header).then(() => {
-      alert("Usuário criado com sucesso");
-      this.setState({ inputName: "" });
-      this.setState({ inputEmail: "" });
-    });
+    axios
+      .post(BASE_URL, body, header)
+      .then(() => {
+        alert("Usuário(a) criado(a) com sucesso!");
+        this.setState({ inputName: "" });
+        this.setState({ inputEmail: "" });
+      })
+      .catch((err) => {
+        alert(err.response.data.message);
+      });
   };
 
   render() {
-    
     return (
       <Main>
         <h1>Labenusers</h1>
@@ -56,11 +66,13 @@ export default class Home extends React.Component {
             placeholder="Nome"
             value={this.state.inputName}
             onChange={this.handleName}
+            onKeyDown={this.handleEnter}
           ></input>
           <input
             placeholder="E-mail"
             value={this.state.inputEmail}
             onChange={this.handleEmail}
+            onKeyDown={this.handleEnter}
           ></input>
           <button onClick={this.createUser}>Criar</button>
         </div>

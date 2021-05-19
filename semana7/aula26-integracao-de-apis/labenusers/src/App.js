@@ -3,7 +3,7 @@ import axios from "axios";
 import styled from "styled-components";
 import Home from "./Components/Home";
 import Users from "./Components/Users";
-import UserDetails from "./Components/UserDetails";
+
 
 export default class App extends React.Component {
   state = {
@@ -18,9 +18,6 @@ export default class App extends React.Component {
     this.setState({ pagina: "users" });
   };
 
-  goToDetails = () => {
-    this.setState({ pagina: "details"})
-  };
 
   // ou switch case:
   // renderPage = () => {
@@ -40,10 +37,8 @@ export default class App extends React.Component {
         return <Home goToUsers={this.goToUsers} />;
 
       if (this.state.pagina === "users")
-        return <Users goToDetails={this.goToDetails} goToHome={this.goToHome} />;
+        return <Users goToHome={this.goToHome} />;
       
-      if (this.state.pagina === "details")
-        return <UserDetails goToUsers={this.goToUsers} />;
     };
 
     return <div className="App">{renderPage()}</div>;

@@ -12,6 +12,8 @@ const BASE_URL =
 export default class Users extends React.Component {
   state = {
     users: [],
+    details: "",
+    showDetails: false,
   };
 
   componentDidMount() {
@@ -50,6 +52,27 @@ export default class Users extends React.Component {
     }
   };
 
+  getUserDetails = (id) => {
+    const url = `https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`;
+    const header = {
+      headers: {
+        Authorization: "laura-campos-paiva",
+      },
+    };
+
+    axios
+      .get(url, header)
+      .then((res) => {
+        const userDetails = res.data;
+        this.setState({ details: userDetails });
+        this.onClickDetails();
+        console.log(userDetails);
+      })
+      .catch((err) => {
+        alert("Ocorreu um erro, tente novamente");
+      });
+  };
+
   deleteUser = (id) => {
     const url = `https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`;
     const header = {
@@ -71,11 +94,35 @@ export default class Users extends React.Component {
     }
   };
 
+  onClickDetails = () => {
+    this.setState({ showDetails: !this.state.showDetails });
+    console.log(this.state.showDetails);
+  };
+
+  renderDetails = () => {
+    return (
+      <div key={user.id}>
+        {" "}
+        <p>
+          Usuário: {this.state.details?.name} | E-mail:{" "}
+          {this.state.details?.email}{" "}
+        </p>
+        <button onClick={() => this.deleteUser(user.id)}>Deletar</button>
+      </div>
+    );
+  };
+
   render() {
     const usersComponents = this.state.users.map((user) => {
       return (
         <div key={user.id}>
-          <p onClick={this.props.goToDetails}>{user.name}</p>
+          <p
+            onClick={() => {
+              this.getUserDetails(user.id);
+            }}
+          >
+            {user.name}
+          </p>
           <button onClick={() => this.deleteUser(user.id)}>Deletar</button>
         </div>
       );
@@ -88,8 +135,9 @@ export default class Users extends React.Component {
 
         <div>
           <h2>Lista de Usuários</h2>
-
-          {usersComponents}
+          <div>
+            {this.state.showDetails ? this.renderDetails() : usersComponents}
+          </div>
         </div>
       </Main>
     );

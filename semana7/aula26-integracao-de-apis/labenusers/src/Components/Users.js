@@ -101,14 +101,16 @@ export default class Users extends React.Component {
 
   renderDetails = () => {
     return (
-      <div key={user.id}>
+      <div>
         {" "}
         <p>
           Usuário: {this.state.details?.name} | E-mail:{" "}
           {this.state.details?.email}{" "}
         </p>
-        <button onClick={() => this.deleteUser(user.id)}>Deletar</button>
+        <button>Deletar</button>
+        <button onClick={this.props.goToUsers}>Voltar</button>
       </div>
+      
     );
   };
 

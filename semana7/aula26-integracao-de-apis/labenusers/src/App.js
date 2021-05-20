@@ -37,7 +37,7 @@ export default class App extends React.Component {
         return <Home goToUsers={this.goToUsers} />;
 
       if (this.state.pagina === "users")
-        return <Users goToHome={this.goToHome} />;
+        return <Users goToUsers= {this.goToUsers} goToHome={this.goToHome} />;
       
     };
 

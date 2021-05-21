@@ -14,18 +14,18 @@ h1 align="center">
 
 <b>SITE DO PROJETO:</b> 
 
-
+laurafy.surge.sh
 
 ---
 
 ## ⚙️ Funcionalidades
 
-  - [x] 
-  - [x] 
-  - [x] 
-  - [x] 
-  - [x] 
-  - [x] 
+  - [x] Criar playlists;
+  - [x] Consultar playlists criadas;
+  - [x] Deletar playlists;
+  - [ ] Adicionar músicas nas playlists;
+  - [ ] Editar músicas;
+  - [ ] Executar playlists;
 
 ---
 

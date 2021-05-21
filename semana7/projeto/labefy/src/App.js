@@ -11,17 +11,30 @@ export default class App extends React.Component {
   };
 
   changePage = () => {
-    if (this.state.currentPage === "createPlaylist") {
-      this.setState({ currentPage: "seePlaylists"});
-    } else {
-      this.setState({ currentPage: "createPlaylist"})
+    switch (this.state.currentPage) {
+      case "createPlaylist":
+        return <CreatePlaylist goToSeePlaylist={this.goToSeePlaylist} />
+      case "seePlaylist":
+        return <SeePlaylists goToCreatePlaylist={this.goToCreatePlaylist} />
+      default:
+        return <div>Página Inicial</div>  
     }
-  };
+  }
+
+  goToCreatePlaylist = () => {
+    this.setState({currentPage: "createPlaylist"})
+  }
+
+  goToSeePlaylist = () => {
+    this.setState({currentPage: "seePlaylist"})
+  }
+
 
   render () {
     return (
       <div>
-        {this.setState.currentPage === "createPlaylist" ? <SeePlaylists /> : <CreatePlaylist />}
+        {this.changePage()}
+        
       </div>
     );
   }

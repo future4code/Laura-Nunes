@@ -12,13 +12,48 @@ const BASE_URL =
 export default class Users extends React.Component {
   state = {
     users: [],
+    details: "",
+    showDetails: false,
   };
 
   componentDidMount() {
     this.getUsers();
   }
 
-  getUsers = () => {
+  // getUsers = () => {
+  //   const header = {
+  //     headers: {
+  //       Authorization: "laura-campos-paiva",
+  //     },
+  //   };
+
+  //   axios
+  //     .get(BASE_URL, header)
+  //     .then((res) => {
+  //       // console.log(res);
+  //       this.setState({ users: res.data });
+  //     })
+  //     .catch((err) => {
+  //       alert("Occorreu um problema, tente novamente");
+  //     });
+  // };
+
+  getUsers = async () => {
+    try {
+      const res = await axios.get(BASE_URL, {
+        headers: {
+          Authorization: "laura-campos-paiva",
+        },
+      });
+
+      this.setState({ users: res.data });
+    } catch (err) {
+      alert("Ocorreu um problema, tente novamente");
+    }
+  };
+
+  getUserDetails = (id) => {
+    const url = `https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`;
     const header = {
       headers: {
         Authorization: "laura-campos-paiva",
@@ -26,38 +61,71 @@ export default class Users extends React.Component {
     };
 
     axios
-      .get(BASE_URL, header)
+      .get(url, header)
       .then((res) => {
-        console.log(res);
-        this.setState({ users: res.data });
+        const userDetails = res.data;
+        this.setState({ details: userDetails });
+        this.onClickDetails();
+        console.log(userDetails);
       })
       .catch((err) => {
-        alert(err.response.data);
+        alert("Ocorreu um erro, tente novamente");
       });
   };
 
-//   deleteUser = () => {        ainda não entendi como fazer com o del
-//     const header = {
-//       headers: {
-//         Authorization: "laura-campos-paiva",
-//       },
-//     };
+  deleteUser = (id) => {
+    const url = `https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`;
+    const header = {
+      headers: {
+        Authorization: "laura-campos-paiva",
+      },
+    };
 
-//     axios
-//         .delete('https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/:id', header)
-//         .then((res) => {
+    if (window.confirm("Tem certeza que quer deletar este usuário?")) {
+      axios
+        .delete(url, header)
+        .then((res) => {
+          alert("Usuário(a) deletado(a) com sucesso!");
+          this.getUsers();
+        })
+        .catch((err) => {
+          alert("Ocorreu um erro, tente novamente");
+        });
+    }
+  };
 
-//         })
-//   };
+  onClickDetails = () => {
+    this.setState({ showDetails: !this.state.showDetails });
+    console.log(this.state.showDetails);
+  };
 
-
+  renderDetails = () => {
+    return (
+      <div>
+        {" "}
+        <p>
+          Usuário: {this.state.details?.name} | E-mail:{" "}
+          {this.state.details?.email}{" "}
+        </p>
+        <button>Deletar</button>
+        <button onClick={this.props.goToUsers}>Voltar</button>
+      </div>
+      
+    );
+  };
 
   render() {
     const usersComponents = this.state.users.map((user) => {
       return (
         <div key={user.id}>
-          <p>{user.name}</p>
-          <button>Deletar</button>
+          <p
+            onClick={() => {
+              this.getUserDetails(user.id);
+            }}
+          >
+            {user.name}
+          </p>
+          <button onClick={() => this.deleteUser(user.id)}>Deletar</button>
         </div>
       );
     });
@@ -69,8 +137,9 @@ export default class Users extends React.Component {
 
         <div>
           <h2>Lista de Usuários</h2>
-
-          {usersComponents}
+          <div>
+            {this.state.showDetails ? this.renderDetails() : usersComponents}
+          </div>
         </div>
       </Main>
     );

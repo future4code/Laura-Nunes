@@ -3,6 +3,7 @@ import Home from "./pages/Home/Home";
 import MatchPage from "./pages/MatchPage/MatchPage";
 import styled from "styled-components";
 import Header from "./components/Header";
+import { ButtonClear } from "./components/ButtonClear";
 
 const Main = styled.div`
   width: 400px;
@@ -40,7 +41,7 @@ const App = () => {
         <Header changePage={changePage} />
         {currentPage === "home" ? <Home /> : <MatchPage />}
       </Container>
-      <button>Limpar matchs</button>
+      <ButtonClear />
     </Main>
   );
 };

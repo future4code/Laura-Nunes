@@ -18,7 +18,7 @@ const Header = (props) => {
     <HeaderContainer>
       {/* logo astromatch */}
       <h2>Astromatch</h2>
-      <button onClick={() => props.changePage()}>troca página</button>
+      <button onClick={() => props.changePage()}>Trocar de página</button>
     </HeaderContainer>
   );
 };

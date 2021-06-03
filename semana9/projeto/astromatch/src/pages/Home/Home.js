@@ -3,29 +3,32 @@ import "./styled.js";
 import { MainHome, ProfileCard, ProfileInfos, Infos } from "./styled";
 import { ButtonContainer, ButtonX, ButtonHeart } from "./styled";
 import axios from "axios";
+import { choosePersonUrl, profileUrl } from "../../constants/constants.js";
 
 const Home = () => {
-  const [profile, setProfile] = useState({})
-
-  const profileUrl = "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/laura-campos/person"
-  const choosePersonUrl = "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/laura-campos/choose-person"
+  const [profile, setProfile] = useState({});
 
   useEffect(() => {
     const getProfile = () => {
       axios
-      .get(profileUrl)
-      .then((res) => setProfile(res.data.profile))
-      .catch((err) => console.log(err))
+        .get(profileUrl)
+        .then((res) => setProfile(res.data.profile))
+        .catch((err) => console.log(err));
     };
     getProfile();
   }, [setProfile, profileUrl]);
 
-  // const choosePerson = () => {
-  //   axios
-  //   .post
-  // }
+  const choosePerson = (id, boolean) => {
+    const body = {
+      id: id,
+      choice: boolean,
+    };
 
-
+    axios
+      .post(choosePersonUrl, body)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
 
   return (
     <MainHome>
@@ -41,8 +44,16 @@ const Home = () => {
         </ProfileInfos>
       </ProfileCard>
       <ButtonContainer>
-        <ButtonX>X</ButtonX>
-        <ButtonHeart>♥</ButtonHeart>
+        <ButtonX 
+          onClick={() => choosePerson(profile.id, false)}
+          >
+          X
+        </ButtonX>
+        <ButtonHeart
+          onClick={() => choosePerson(profile.id, true)}
+        >
+          ♥
+        </ButtonHeart>
       </ButtonContainer>
     </MainHome>
   );

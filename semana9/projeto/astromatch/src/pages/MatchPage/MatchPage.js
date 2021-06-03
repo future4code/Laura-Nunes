@@ -9,28 +9,33 @@ import { Img } from "./styled";
 const MatchPage = () => {
   const [matches, setMatches] = useState([]);
 
-  useEffect(() => {
-    const getMatches = () => {
-      axios
-        .get(matchesUrl)
-        .then((res) => setMatches(res.data.matches))
-        .catch((err) => console.log(err));
-    };
-    getMatches();
-  }, [setMatches, matchesUrl]);
+  const getMatches = () => {
+    axios
+      .get(matchesUrl)
+      .then((res) => setMatches(res.data.matches))
+      .catch((err) => console.log(err));
+  };
 
   const listMatches = () => {
-    matches.map((match) => {
+    return matches.map((match) => {
       return (
-        <List>
+        <List key={match.id}>
           <ListItem>
-            <Img src="{match.photo}" />
+            <Img src={match.photo} />
             <p>{match.name}</p>
           </ListItem>
         </List>
       );
     });
   };
+
+
+  useEffect(() => {
+    
+    getMatches();
+  }, [setMatches, matchesUrl]);
+
+  
 
   return (
 

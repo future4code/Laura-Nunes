@@ -6,6 +6,7 @@ import { clearUrl } from "../constants/constants";
 const Button = styled.button``;
 
 export const ButtonClear = () => {
+  
   const clearMatches = () => {
     axios
       .put(clearUrl)

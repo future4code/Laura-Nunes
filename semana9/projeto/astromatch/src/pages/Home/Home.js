@@ -8,13 +8,14 @@ import { choosePersonUrl, profileUrl } from "../../constants/constants.js";
 const Home = () => {
   const [profile, setProfile] = useState({});
 
+  const getProfile = () => {
+    axios
+      .get(profileUrl)
+      .then((res) => setProfile(res.data.profile))
+      .catch((err) => console.log(err));
+  };
+
   useEffect(() => {
-    const getProfile = () => {
-      axios
-        .get(profileUrl)
-        .then((res) => setProfile(res.data.profile))
-        .catch((err) => console.log(err));
-    };
     getProfile();
   }, [setProfile, profileUrl]);
 
@@ -26,7 +27,7 @@ const Home = () => {
 
     axios
       .post(choosePersonUrl, body)
-      .then((res) => console.log(res))
+      .then(() => getProfile())
       .catch((err) => console.log(err));
   };
 
@@ -44,14 +45,8 @@ const Home = () => {
         </ProfileInfos>
       </ProfileCard>
       <ButtonContainer>
-        <ButtonX 
-          onClick={() => choosePerson(profile.id, false)}
-          >
-          X
-        </ButtonX>
-        <ButtonHeart
-          onClick={() => choosePerson(profile.id, true)}
-        >
+        <ButtonX onClick={() => choosePerson(profile.id, false)}>X</ButtonX>
+        <ButtonHeart onClick={() => choosePerson(profile.id, true)}>
           ♥
         </ButtonHeart>
       </ButtonContainer>

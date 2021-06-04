@@ -11,7 +11,7 @@
 💘 O Astromatch é primeiro projeto do 3º módulo de frontend do curso de Desenvolvimento Web Full Stack da Labenu, turma Paiva.
 <br>
 
-<b>SITE DO PROJETO:</b> LINK DO SURGE
+<b>SITE DO PROJETO:</b> <a href="lauramatch.surge.sh">lauramatch.surge.sh</a>
 
 ---
 

@@ -3,7 +3,7 @@
 </h1>
 
 <h3 align="center">
-    💕 INVENTA UM SLOGAN FOFO AÍ 💕
+    💕 Encontre seu par fictício perfeito (já que na vida real tá difícil) 💕
 </h3>
 
 ## 💻 Sobre o projeto
@@ -16,13 +16,10 @@
 ---
 
 ## ⚙️ Funcionalidades
-- [X] 
-- [X] 
-- [X]  
-- [X] 
-- [X] 
-- [X]
-- [X] 
+- [X] Visualizar perfis disponíveis;
+- [X] Dar like ou dislike nos perfis;
+- [X] Visualizar matches; 
+- [X] Limpar matches;
 - [X] Responsividade;
 
 

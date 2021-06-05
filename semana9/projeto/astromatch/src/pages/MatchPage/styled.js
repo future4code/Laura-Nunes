@@ -1,23 +1,24 @@
-import React from "react";
 import styled from "styled-components";
 
+export const MainMatch = styled.div`
 
-
-export const MainMatch = styled.div``;
+`;
 
 export const List = styled.ul`
-padding: 0px 10px;
-`
+  padding: 0px 10px;
+  
+`;
 
 export const ListItem = styled.li`
   position: relative;
-  height: 70px;
-  padding: 10px;
+  height: 50px;
+  padding: 1px;
   display: flex;
-  list-style: none;
   width: 100%;
-  transition: all 0.2s ease 0s;
   cursor: pointer;
+  :hover {
+    background-color: rgba(0,0,0,0.1);
+  }
 `;
 
 export const Img = styled.img`
@@ -25,4 +26,5 @@ export const Img = styled.img`
   width: 50px;
   margin-right: 10px;
   border-radius: 50%;
+
 `;

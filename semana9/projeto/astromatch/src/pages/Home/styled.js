@@ -1,5 +1,4 @@
-import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const MainHome = styled.div`
   display: flex;
@@ -7,6 +6,9 @@ export const MainHome = styled.div`
   flex: 1 1 0%;
   justify-content: flex-end;
   padding: 20px 20px 0px;
+
+  @media screen and (min-width: 450px) {
+  }
 `;
 
 export const ProfileCard = styled.div`
@@ -14,9 +16,7 @@ export const ProfileCard = styled.div`
   position: relative;
   border-radius: 5px;
   overflow: hidden;
-  transition: all 0.5s ease 0s;
   height: 430px;
-  animation: 0.5s ease 0s 1 normal forwards running none;
   display: flex;
   align-items: center;
 `;
@@ -32,17 +32,43 @@ export const ProfileInfos = styled.div`
   color: white;
   justify-content: flex-end;
   padding: 15px;
+  z-index: 2;
 `;
+
+export const BackgroundPhoto = styled.img`
+  filter: blur(30px);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+`;
+
+export const Img = styled.img`
+  margin: auto;
+  width: 90%;
+  z-index: 1;
+`;
+
 export const Infos = styled.div`
   display: flex;
-  align-items: baseline;
+  font-size: 25px;
+  z-index: 2;
 `;
+
+export const Bio = styled.div`
+  display: flex;
+  
+  margin-right: 20px;
+  padding: 1px;
+  z-index: 2;
+`;
+
 export const ButtonContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   padding: 10px 0px;
 `;
+
 
 export const ButtonX = styled.button`
   border-radius: 50%;
@@ -56,6 +82,7 @@ export const ButtonX = styled.button`
   position: relative;
   box-shadow: rgb(205 205 205 / 73%) 0px 0px 15px 0px;
   overflow: hidden;
+  
 `;
 
 export const ButtonHeart = styled.button`
@@ -71,3 +98,4 @@ export const ButtonHeart = styled.button`
   box-shadow: rgb(205 205 205 / 73%) 0px 0px 15px 0px;
   overflow: hidden;
 `;
+

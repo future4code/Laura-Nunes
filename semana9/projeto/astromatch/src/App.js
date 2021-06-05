@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Home from "./pages/Home/Home";
 import MatchPage from "./pages/MatchPage/MatchPage";
 import styled from "styled-components";
@@ -27,18 +27,18 @@ const Container = styled.div`
 const App = () => {
   const [currentPage, setCurrentPage] = useState("home");
 
-  const changePage = () => {
-    if (currentPage === "home") {
-      setCurrentPage("matchPage");
-    } else {
-      setCurrentPage("home");
-    }
+  const goToHome = () => {
+    setCurrentPage("home");
+  };
+
+  const goToMatchPage = () => {
+    setCurrentPage("matchPage");
   };
 
   return (
     <Main>
       <Container>
-        <Header changePage={changePage} />
+        <Header goToHome={goToHome} goToMatchPage={goToMatchPage} />
         {currentPage === "home" ? <Home /> : <MatchPage />}
       </Container>
       <ButtonClear />

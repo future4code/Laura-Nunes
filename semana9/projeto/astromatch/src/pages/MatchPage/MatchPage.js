@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { matchesUrl, profileUrl } from "../../constants/constants";
+import { matchesUrl } from "../../constants/constants";
 import { MainMatch } from "./styled";
 import { List } from "./styled";
 import { ListItem } from "./styled";
@@ -33,7 +33,7 @@ const MatchPage = () => {
   useEffect(() => {
     
     getMatches();
-  }, [setMatches, matchesUrl]);
+  }, [setMatches]);
 
   
 

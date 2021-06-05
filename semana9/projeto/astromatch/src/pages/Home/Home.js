@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./styled.js";
-import { MainHome, ProfileCard, ProfileInfos, Infos } from "./styled";
+import { MainHome, ProfileCard, ProfileInfos, Infos, Img, BackgroundPhoto, Bio} from "./styled";
 import { ButtonContainer, ButtonX, ButtonHeart } from "./styled";
 import axios from "axios";
 import { choosePersonUrl, profileUrl } from "../../constants/constants.js";
@@ -17,7 +17,7 @@ const Home = () => {
 
   useEffect(() => {
     getProfile();
-  }, [setProfile, profileUrl]);
+  }, [setProfile]);
 
   const choosePerson = (id, boolean) => {
     const body = {
@@ -34,14 +34,15 @@ const Home = () => {
   return (
     <MainHome>
       <ProfileCard>
-        {/* {/* retorna uma div com a imagem em blur\} */}
-        <img src={profile.photo}></img>
+        <BackgroundPhoto src={profile.photo}></BackgroundPhoto>
+        <Img src={profile.photo} alt={profile.name}></Img>
         <ProfileInfos>
           <Infos>
-            <div>{profile.name}, </div>
-            <div>{profile.age}</div>
+            <div>{`${profile.name}, ${profile.age}`}</div>
           </Infos>
-          <p>{profile.bio}</p>
+          <Bio>
+            <p>{profile.bio}</p>
+          </Bio>
         </ProfileInfos>
       </ProfileCard>
       <ButtonContainer>

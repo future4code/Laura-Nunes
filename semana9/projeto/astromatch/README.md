@@ -20,7 +20,7 @@
 - [X] Dar like ou dislike nos perfis;
 - [X] Visualizar matches; 
 - [X] Limpar matches;
-- [X] Responsividade;
+- [ ] Responsividade;
 
 
 ---

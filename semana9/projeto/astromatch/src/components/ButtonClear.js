@@ -1,11 +1,9 @@
 import axios from "axios";
 import React from "react";
-import styled from "styled-components";
 import { clearUrl } from "../constants/constants";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const Button = styled.button``;
 
 export const ButtonClear = () => {
   const clearMatches = () => {
@@ -17,7 +15,7 @@ export const ButtonClear = () => {
 
   return (
     <div>
-      <Button onClick={() => clearMatches()}>Zerar matches</Button>
+      <button onClick={() => clearMatches()}>Zerar matches</button>
       <ToastContainer
         position="top-center"
         autoClose={2000}

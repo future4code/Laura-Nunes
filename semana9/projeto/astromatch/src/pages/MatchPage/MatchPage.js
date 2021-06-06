@@ -29,22 +29,11 @@ const MatchPage = () => {
     });
   };
 
-
   useEffect(() => {
-    
     getMatches();
   }, [setMatches]);
 
-  
-
-  return (
-
-  <MainMatch>
-    {listMatches()}
-  </MainMatch>
-  
-  )
-
+  return <MainMatch>{listMatches()}</MainMatch>;
 };
 
 export default MatchPage;

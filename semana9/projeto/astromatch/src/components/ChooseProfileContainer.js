@@ -41,7 +41,9 @@ const ChooseProfileContainer = () => {
 
   return (
     <div>
-      <ProfileCard>
+      {profile ? (
+        <>
+<ProfileCard>
         <BackgroundPhoto src={profile.photo}></BackgroundPhoto>
         <Img src={profile.photo} alt={profile.name}></Img>
         <ProfileInfos>
@@ -60,6 +62,13 @@ const ChooseProfileContainer = () => {
           ♥
         </ButtonHeart>
       </ButtonContainer>
+      </>
+      ) : (
+        <p>Acabaram os perfis 😭 
+          Zere pra recomeçar
+        </p>
+      )}
+      
     </div>
   );
 };

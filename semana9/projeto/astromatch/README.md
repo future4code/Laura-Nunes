@@ -21,7 +21,6 @@
 - [X] Visualizar matches; 
 - [X] Zerar matches;
 - [X] Alert personalizado quando os matches são zerados;
-- [ ] Responsividade;
 
 
 ---

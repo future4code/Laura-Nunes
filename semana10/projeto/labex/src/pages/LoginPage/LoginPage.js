@@ -1,5 +1,5 @@
 import React from "react";
-import { ButtonBack } from "../components/Buttons";
+import { ButtonBack } from "../../components/Buttons";
 
 const LoginPage = () => {
   return (
@@ -10,6 +10,7 @@ const LoginPage = () => {
       <ButtonBack />
       <button>Enviar</button> 
       
+      {/* POST Login */}
     </div>
   );
 };

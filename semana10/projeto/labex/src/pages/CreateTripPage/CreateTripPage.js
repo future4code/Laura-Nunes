@@ -1,5 +1,5 @@
 import React from "react";
-import { ButtonBack } from "../components/Buttons";
+import { ButtonBack } from "../../components/Buttons";
 
 const CreateTripPage = () => {
   return (
@@ -9,6 +9,7 @@ const CreateTripPage = () => {
       
       <ButtonBack />
       <button>Criar</button>
+      {/* POST Create trip */}
     </div>
   );
 };

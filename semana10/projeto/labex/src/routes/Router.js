@@ -1,13 +1,13 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import HomePage from "../pages/HomePage";
-import AdminHomePage from "../pages/AdminHomePage";
-import LoginPage from "../pages/LoginPage";
-import ApplicationFormPage from "../pages/ApplicationFormPage";
-import CreateTripPage from "../pages/CreateTripPage";
-import TripDetailsPage from "../pages/TripDetailsPage";
-import ListTripPage from "../pages/ListTripPage";
-import ErrorPage from "../pages/ErrorPage";
+import HomePage from "../pages/HomePage/HomePage";
+import AdminHomePage from "../pages/AdminHomePage/AdminHomePage";
+import LoginPage from "../pages/LoginPage/LoginPage";
+import ApplicationFormPage from "../pages/ApplicationFormPage/ApplicationFormPage";
+import CreateTripPage from "../pages/CreateTripPage/CreateTripPage";
+import TripDetailsPage from "../pages/TripDetailsPage/TripDetailsPage";
+import ListTripPage from "../pages/ListTripPage/ListTripPage";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 const Router = () => {
   return (

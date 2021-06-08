@@ -1,5 +1,5 @@
 import React from "react";
-import { ButtonApplication, ButtonBack } from "../components/Buttons";
+import { ButtonApplication, ButtonBack } from "../../components/Buttons";
 
 const ListTripPage = () => {
   return (
@@ -9,6 +9,7 @@ const ListTripPage = () => {
       
       <h1>Lista de Viagens</h1>
       
+      {/* GET trips */}
     </div>
   );
 };

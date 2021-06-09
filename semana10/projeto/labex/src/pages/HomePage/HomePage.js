@@ -1,5 +1,5 @@
 import React from "react";
-import { ButtonLogin, ButtonListTrip } from "../../components/Buttons";
+import { ButtonLogin, ButtonListTrip, ButtonAdminHome } from "../../components/Buttons";
 
 const HomePage = () => {
   return (
@@ -7,7 +7,7 @@ const HomePage = () => {
       <h1>LabeX</h1>
 
       <ButtonListTrip />
-      <ButtonLogin />
+      <ButtonAdminHome />
 
     </div>
   );

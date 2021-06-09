@@ -6,13 +6,9 @@ import {
   goToApplicationFormPage,
   goBack,
   goToCreateTripPage,
+  goToAdminHomePage,
 } from "../routes/coordinator";
 
-export const ButtonLogin = () => {
-  const history = useHistory();
-
-  return <button onClick={() => goToLoginPage(history)}>Área de Admin</button>;
-};
 
 export const ButtonListTrip = () => {
   const history = useHistory();
@@ -43,3 +39,11 @@ export const ButtonCreateTrip = () => {
     <button onClick={() => goToCreateTripPage(history)}>Criar viagem</button>
   );
 };
+
+export const ButtonAdminHome = () => {
+  const history = useHistory();
+
+  return (
+    <button onClick={() => goToAdminHomePage(history)}>Área de Admin</button>
+  )
+}

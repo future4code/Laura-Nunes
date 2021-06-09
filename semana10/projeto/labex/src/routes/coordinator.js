@@ -17,3 +17,11 @@ export const goToApplicationFormPage = (history) => {
 export const goToCreateTripPage = (history) => {
     history.push("/admin/trips/create")
 };
+
+export const goToAdminHomePage = (history) => {
+    history.push("/admin/trips/list")
+};
+
+export const goToTripDetailsPage = (history) => {
+    history.push("/admin/trips/:id")
+}

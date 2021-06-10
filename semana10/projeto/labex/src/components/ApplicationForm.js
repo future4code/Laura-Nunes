@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import useForm from "../hooks/useForm";
 
 const FormContainer = styled.div`
   display: flex;
@@ -37,29 +38,67 @@ const Form = styled.form`
 `;
 
 const ApplicationForm = () => {
+  const { form, onChange, cleanFields } = useForm({
+    name: "",
+    age: "",
+    applicationText: "",
+    profession: "",
+    country: "",
+    tripId: "",
+  });
+
+  const register = (event) => {
+    event.preventDefault();
+    cleanFields();
+  };
+
+// POST
+
   return (
     <FormContainer>
-      <Form>
-        <select>
+      <Form onSubmit={register}>
+        <select value={form.tripId} name={"tripId"} onChange={onChange} required>
           <option value disabled selected>
             Escolha a viagem
           </option>
         </select>
-        <input placeholder="Nome" name="name"></input>
+        <input 
+          value={form.name} 
+          placeholder="Nome" 
+          name="name" 
+          onChange={onChange} 
+          required 
+          pattern={"^.{3,}"}
+          title={"O nome deve ter no mínimo 3 caractéres"}
+        />
         <input
+          value={form.age}
           placeholder="Idade"
           type="number"
           name="age"
+          onChange={onChange}
           required
           min="18"
-        ></input>
+        />
         <input
+          value={form.applicationText}
           placeholder="Texto de Candidatura"
           name="applicationText"
+          onChange={onChange}
+          pattern={"^.{30,}"}
           title="O texto deve ter no mínimo 30 caracteres"
-        ></input>
-        <input placeholder="Profissão" name="profession"></input>
-        <select placeholder="País" name="country" required>
+          required
+        />
+        <input
+          value={form.profession}
+          placeholder="Profissão"
+          name="profession"
+          onChange={onChange}
+          pattern={"^.{10,}"}
+          title="O texto deve ter no mínimo 10 caracteres"
+          required
+        />
+        <select value={form.country} placeholder="País" name="country" onChange={onChange} required>
           <option value disabled selected>
             Escolha um país
           </option>
@@ -340,6 +379,7 @@ const ApplicationForm = () => {
           <option value="Zimbabwe">Zimbabwe</option>
           <option value="Zâmbia">Zâmbia</option>
         </select>
+        <button>Enviar</button>
       </Form>
     </FormContainer>
   );

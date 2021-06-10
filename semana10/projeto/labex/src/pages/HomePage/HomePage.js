@@ -1,5 +1,5 @@
 import React from "react";
-import { ButtonLogin, ButtonListTrip, ButtonAdminHome } from "../../components/Buttons";
+import { ButtonListTrip, ButtonAdminHome } from "../../components/Buttons";
 
 const HomePage = () => {
   return (

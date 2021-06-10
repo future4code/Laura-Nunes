@@ -12,6 +12,7 @@
 <br>
 
 <b>SITE DO PROJETO:</b> <a href="lauramatch.surge.sh">LINK DO SURGE</a>
+login do admin: laura@gmail.com - senha: 123456
 
 ---
 

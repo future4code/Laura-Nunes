@@ -11,7 +11,7 @@ const ApplicationFormPage = () => {
       <ApplicationForm />
       <ButtonContainer>
         <ButtonBack />
-        <button>Enviar</button>
+
 
         {/* POST Apply to trip */}
       </ButtonContainer>

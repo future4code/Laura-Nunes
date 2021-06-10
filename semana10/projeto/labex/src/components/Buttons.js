@@ -1,7 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import {
-  goToLoginPage,
   goToListTripPage,
   goToApplicationFormPage,
   goBack,

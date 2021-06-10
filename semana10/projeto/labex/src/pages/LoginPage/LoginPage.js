@@ -1,23 +1,25 @@
-import React, { useEffect } from "react";
-import useInput from "../../hooks/useInput";
+import React from "react";
+import useForm from "../../hooks/useForm";
 import axios from "axios";
 import { ButtonBack } from "../../components/Buttons";
 import { useHistory } from "react-router";
 import { BASE_URL } from "../../constants/urls";
 
 const LoginPage = () => {
-  const [email, handleEmail] = useInput("");
-  const [password, handlePassword] = useInput("");
+  const { form, onChange, cleanFields } = useForm({ email: "", password: "" });
+
   const history = useHistory();
 
-  const onClickLogin = () => {
-    const body = { email, password };
+  const onClickLogin = (event) => {
+    event.preventDefault();
+    // const body = { email, password };
 
     axios
-      .post(`${BASE_URL}/login`, body)
+      .post(`${BASE_URL}/login`, form)
       .then((res) => {
         localStorage.setItem("token", res.data.token);
         history.push("/admin/trips/list");
+        cleanFields()
       })
       .catch((err) => alert(err.response.data.message));
   };
@@ -25,10 +27,28 @@ const LoginPage = () => {
   return (
     <div>
       <h1>Login</h1>
-      <input value={email} onChange={handleEmail} placeholder="E-mail" />
-      <input value={password} onChange={handlePassword} placeholder="Senha" />
-      <ButtonBack />
-      <button onClick={onClickLogin}>Enviar</button>
+      <form onSubmit={onClickLogin}>
+        <input
+          name="email"
+          value={form.email}
+          onChange={onChange}
+          placeholder="E-mail"
+          type="email"
+          required
+        />
+        <input
+          name="password"
+          value={form.password}
+          onChange={onChange}
+          placeholder="Senha"
+          type="password"
+          required
+          pattern={"^.{3,}"}
+          title={"Sua senha deve ter no mínimo 3 caractéres"}
+        />
+        <ButtonBack />
+        <button>Enviar</button>
+      </form>
     </div>
   );
 };

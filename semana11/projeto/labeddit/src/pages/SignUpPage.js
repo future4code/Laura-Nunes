@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
@@ -8,12 +8,20 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import { useHistory } from "react-router-dom";
+import axios from "axios";
+import { BASE_URL } from "../constants/urls";
 
 const SignUpPage = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const history = useHistory();
+
+  useEffect(() => {
+    if (localStorage.getItem("token") !== null) {
+      history.push("/feed");
+    }
+  }, [history]);
 
   // UNIFICAR FUNÇÕES COM CUSTOM HOOK
 
@@ -40,7 +48,24 @@ const SignUpPage = () => {
     history.push("/login");
   };
 
+  const handleSignUp = async (e) => {
+    e.preventDefault();
 
+    const body = {
+      username,
+      email,
+      password,
+    };
+
+    try {
+      const response = await axios.post(`${BASE_URL}/users/signup`, body);
+      localStorage.setItem("token", response.data.token);
+      history.push("/login");
+    } catch (err) {
+      alert("Ocorreu um erro, confira os dados e tente novamente");
+      console.error(err);
+    }
+  };
 
   return (
     <Container component="main" maxWidth="xs">
@@ -51,7 +76,7 @@ const SignUpPage = () => {
         <Typography component="h1" variant="h5">
           Cadastre-se
         </Typography>
-        <form onSubmit={handleSingUp}>
+        <form onSubmit={handleSignUp}>
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <TextField
@@ -84,9 +109,11 @@ const SignUpPage = () => {
               <TextField
                 variant="outlined"
                 required
+                pattern={"^.{8,}"}
+                title={"A senha deve ter no mínimo 8 caracteres"}
                 fullWidth
                 name="password"
-                label="Senha"
+                label="Senha (mínimo 8 caracteres)"
                 type="password"
                 id="password"
                 autoComplete="current-password"
@@ -97,7 +124,7 @@ const SignUpPage = () => {
             <Grid item xs={12}></Grid>
           </Grid>
           <Button type="submit" fullWidth variant="contained" color="primary">
-            Sign Up
+            Entrar
           </Button>
           <Grid container justify="flex-end">
             <Grid item>

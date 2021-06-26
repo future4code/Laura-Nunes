@@ -46,7 +46,6 @@ const LoginPage = () => {
       password,
     };
 
-    console.log(body);
     try {
       const response = await axios.post(`${BASE_URL}/users/login`, body);
 

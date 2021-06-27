@@ -3,6 +3,7 @@ import { Switch, Route, BrowserRouter } from "react-router-dom";
 import LoginPage from "../pages/LoginPage";
 import SignUpPage from "../pages/SignUpPage";
 import FeedPage from "../pages/FeedPage";
+import PostDetailsPage from "../pages/PostDetailsPage";
 
 const Router = (props) => {
   return (
@@ -18,7 +19,7 @@ const Router = (props) => {
           <FeedPage />
         </Route>
         <Route path={"/post/:postId"}>
-          <p>post details</p>
+          <PostDetailsPage />
         </Route>
       </Switch>
     </BrowserRouter>

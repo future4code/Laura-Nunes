@@ -40,10 +40,6 @@ const SignUpPage = () => {
     setPassword(newPassword);
   };
 
-  const handleSingUp = (e) => {
-    e.preventDefault();
-  };
-
   const handleGoToLogin = () => {
     history.push("/login");
   };

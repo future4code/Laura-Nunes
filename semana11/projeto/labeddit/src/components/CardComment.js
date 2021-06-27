@@ -8,28 +8,21 @@ import Typography from "@material-ui/core/Typography";
 import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
 import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
-import Button from "@material-ui/core/Button";
-import CommentIcon from "@material-ui/icons/Comment";
-import { useHistory } from "react-router-dom";
 
-const PostCard = (props) => {
-  const history = useHistory();
 
-  const handleGoToPostDetail = () => {
-    history.push(`/post/${props.post.id}/`);
-  };
-
+const CardComment = (props) => {
+ console.log(props)
   return (
     <Card>
       <CardHeader
-        avatar={<Avatar aria-label="recipe">R</Avatar>}
+        avatar={<Avatar aria-label="recipe">L</Avatar>}
         action={
           <IconButton aria-label="settings">
             <MoreVertIcon />
           </IconButton>
         }
-        title={props.post.title}
-        subheader={props.post.username}
+        title={props.post.username}
+        subheader="comentou:"
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
@@ -44,17 +37,9 @@ const PostCard = (props) => {
         <IconButton>
           <ArrowDownwardIcon />
         </IconButton>
-          <Button
-            onClick={handleGoToPostDetail}
-            variant="contained"
-            color="default"
-            startIcon={<CommentIcon />}
-          >
-            Comentar
-          </Button>
       </CardActions>
     </Card>
   );
 };
 
-export default PostCard;
+export default CardComment;

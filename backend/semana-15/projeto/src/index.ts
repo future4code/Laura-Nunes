@@ -17,7 +17,14 @@ app.post("/users/create", (req: Request, res: Response) => {
     const dateOfBirth: Date = new Date(`${year}-${month}-${day}`);
     // validar as entradas da requisição
 
-    
+    const ageInMillisseconds: number = Date.now() - dateOfBirth.getTime()
+
+    const ageInYears: number = ageInMillisseconds / 1000 / 60 / 60 / 24 / 365
+
+    if (ageInYears <18) {
+        res.statusCode = 406
+        throw new Error("Idade deve wser maior que 18 anos")
+    }
     // consultar ou alterar a base de dados
 
     accounts.push({
@@ -33,7 +40,7 @@ app.post("/users/create", (req: Request, res: Response) => {
     res.status(201).send("Conta criada com sucesso!");
   } catch (error) {
     console.log(error);
-    res.status(400).send(error.message);
+    res.send(error.message);
   }
 });
 
